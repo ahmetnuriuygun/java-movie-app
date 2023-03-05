@@ -46,8 +46,6 @@
             <form class="d-flex align-items-center w-100 form-search">
                 <div class="input-group">
 
-
-
                     <button class="btn btn-light dropdown-toggle shadow-0" href="" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
                         All
                     </button>
@@ -86,25 +84,10 @@
                         </li>
                     </ul>
 
+                    <input type="search" class="form-control" name="keyword" placeholder="Search" aria-label="Search" />
 
-
-                    <!-- <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#projects" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Projects
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">HTML & CSS</a></li>
-                        <li><a class="dropdown-item" href="#">Bootstrap</a></li>
-                        <li><a class="dropdown-item">JavaScript</a></li>
-                        <li><a class="dropdown-item" href="#">React</a></li>
-                      </ul>
-                    </li> -->
-
-
-
-                    <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
                 </div>
-                <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
+                <a th:href="@{/home/filter}" class="text-white"><i class="fas fa-search ps-3"></i></a>
             </form>
 
             <ul class="navbar-nav ms-3">

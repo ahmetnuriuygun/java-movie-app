@@ -1,7 +1,9 @@
 package be.thomasmore.movie.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+
 @Entity
 public class Movies {
     @Id
@@ -14,18 +16,29 @@ public class Movies {
     public void setId(Integer id) {
         this.id = id;
     }
+
+
+    @Column(length= 10000)
+    private String poster;
     private String movieName;
-
     private int release_date;
-
     private double rank;
-
     public Movies(){
 
     }
+
     public Movies(String movieName) {
         this.movieName = movieName;
 
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+
+    public void setPoster(String poster) {
+        this.poster = poster;
     }
 
 
