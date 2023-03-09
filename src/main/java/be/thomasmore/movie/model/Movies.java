@@ -3,6 +3,9 @@ package be.thomasmore.movie.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+
+import java.util.Collection;
 
 @Entity
 public class Movies {
@@ -23,8 +26,22 @@ public class Movies {
     private String movieName;
     private int release_date;
     private double rank;
-    public Movies(){
 
+    private String description;
+
+   @ManyToMany
+   private Collection<Genres> genres;
+
+
+    public Collection<Genres> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(Collection<Genres> genres) {
+        this.genres = genres;
+    }
+
+    public Movies(){
     }
 
     public Movies(String movieName) {
@@ -68,4 +85,23 @@ public class Movies {
         this.rank = distanceFromPublicTransportInKm;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+    @ManyToMany
+    private Collection<Genres> genres2;
+
+    public Collection<Genres> getGenres2() {
+        return genres2;
+    }
+
+    public void setGenres2(Collection<Genres> genres2) {
+        this.genres2 = genres2;
+    }
 }

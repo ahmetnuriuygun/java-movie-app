@@ -8,112 +8,42 @@
 </head>
 <body>
 <div th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light   ">
 
+        <div class="container">
+            <a class="navbar-brand" href="/home">JAVA SPRING MOVIE-APP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <!-- Container wrapper -->
-    <div class="container">
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="#"><img id="MDB-logo"
-                                              src="data:image/png;base64,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" alt="MDB Logo"
-                                              draggable="false" height="65" width="200" /></a>
-
-        <!-- Toggle button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
-
-        <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left links -->
-
-                <li class="nav-item">
-                    <a class="nav-link active d-flex align-items-center text-warning header-text" aria-current="page" href="#">Java Movie App</a>
-                </li>
-
-
-
-
-            <!-- Left links -->
-
-            <form class="d-flex align-items-center w-100 form-search">
-                <div class="input-group">
-
-                    <button class="btn btn-light dropdown-toggle shadow-0" href="" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
-                        All
-                    </button>
-
-                    <ul class="dropdown-menu dropdown-menu-dark fa-ul">
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="fa-li pe-2"><i class="fas fa-search"></i></span>All</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="fa-li pe-2"><i
-                                    class="fas fa-film"></i></span>Titles</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="fa-li pe-2"><i class="fas fa-tv"></i></span>TV
-                                Episodes</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="fa-li pe-2"><i
-                                    class="fas fa-user-friends"></i></span>Celebs</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="fa-li pe-2"><i
-                                    class="fas fa-building"></i></span>Companies</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="fa-li pe-2"><i
-                                    class="fas fa-key"></i></span>Keywords</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="fa-li pe-2"><i
-                                    class="fas fa-search-plus"></i></span>Advanced
-                                search<i class="fas fa-chevron-right ps-2"></i></a>
-                        </li>
-                    </ul>
-
-                    <input type="search" class="form-control" name="keyword" placeholder="Search" aria-label="Search" />
-
-                </div>
-                <a th:href="@{/home/filter}" class="text-white"><i class="fas fa-search ps-3"></i></a>
-            </form>
-
-            <ul class="navbar-nav ms-3">
-                <li class="nav-item me-3">
-                    <a class="nav-link d-flex align-items-center" href="#!">IMDbPro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center me-3" href="#!">
-                        <i class="fas fa-bookmark pe-2"></i> Watchlist
-                    </a>
-                </li>
-                <li class="nav-item" style="width: 85px;">
-                    <a class="nav-link d-flex align-items-center" href="#!">Sign In</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/movielist">MOVIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ACTORS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">DIRECTEURS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/genrelist">GENRES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">LOGIN</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <!-- Collapsible wrapper -->
-    </div>
-    <!-- Container wrapper -->
-</nav>
+
+    </nav>
 </div>
-<!-- Navbar -->
 </body>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"
 ></script>
+
 </html>
