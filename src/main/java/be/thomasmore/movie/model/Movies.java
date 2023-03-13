@@ -1,9 +1,6 @@
 package be.thomasmore.movie.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 import java.util.Collection;
 
@@ -33,6 +30,9 @@ public class Movies {
    private Collection<Genres> genres;
 
 
+    @ManyToOne
+    private Directors directors;
+
     public Collection<Genres> getGenres() {
         return genres;
     }
@@ -40,6 +40,11 @@ public class Movies {
     public void setGenres(Collection<Genres> genres) {
         this.genres = genres;
     }
+
+
+
+    @ManyToMany
+    private Collection<Genres> genres2;
 
     public Movies(){
     }
@@ -94,8 +99,15 @@ public class Movies {
     }
 
 
-    @ManyToMany
-    private Collection<Genres> genres2;
+    public Directors getDirectors() {
+        return directors;
+    }
+
+    public void setDirectors(Directors directors) {
+        this.directors = directors;
+    }
+
+
 
     public Collection<Genres> getGenres2() {
         return genres2;
