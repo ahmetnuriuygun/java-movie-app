@@ -1,5 +1,6 @@
 package be.thomasmore.movie.repositories;
 
+import be.thomasmore.movie.model.Directors;
 import be.thomasmore.movie.model.Movies;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -16,6 +17,9 @@ Optional<Movies> findFirstByIdGreaterThanOrderById(Integer id);
 Optional<Movies> findFirstByOrderByIdDesc();
 
 Optional<Movies> findFirstByOrderByIdAsc();
+
+   List<Movies> findByDirectors(Directors directors);
+
 
 
 

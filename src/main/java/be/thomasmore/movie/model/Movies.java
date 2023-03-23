@@ -33,6 +33,12 @@ public class Movies {
     @ManyToOne
     private Directors directors;
 
+    @ManyToMany
+    @JoinTable(name="roles",
+    joinColumns = @JoinColumn(name = "movie_id"),
+    inverseJoinColumns = @JoinColumn(name = "actors_id"))
+    private Collection<Actors> actor;
+
     public Collection<Genres> getGenres() {
         return genres;
     }
@@ -49,9 +55,25 @@ public class Movies {
     public Movies(){
     }
 
+    public Collection<Actors> getActors() {
+        return actor;
+    }
+
+    public void setActors(Collection<Actors> actor) {
+        this.actor = actor;
+    }
+
     public Movies(String movieName) {
         this.movieName = movieName;
 
+    }
+
+    public Collection<Actors> getActor() {
+        return actor;
+    }
+
+    public void setActor(Collection<Actors> actor) {
+        this.actor = actor;
     }
 
     public String getPoster() {

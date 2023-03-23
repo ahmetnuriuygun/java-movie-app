@@ -1,7 +1,6 @@
 package be.thomasmore.movie.controllers;
 
 import be.thomasmore.movie.model.Movies;
-import be.thomasmore.movie.repositories.DirectorsRepository;
 import be.thomasmore.movie.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +18,8 @@ public class MovieController {
     @Autowired
     private MovieRepository movieRepository;
 
-    @Autowired
-    private DirectorsRepository directorsRepository;
+
+
 
 
     @GetMapping({"/movielist","/movielist/{filter}"})
@@ -57,8 +56,8 @@ public class MovieController {
         Optional<Movies> optionalNext = movieRepository.findFirstByIdGreaterThanOrderById(id);
         if (optionalMovies.isPresent()) {
             Movies movie = optionalMovies.get();
+
             model.addAttribute("movie", movie);
-//            model.addAttribute("directors",directorsRepository.findByMovies(movie));
 
         }
         if (optionalPrev.isPresent()) {
@@ -74,5 +73,7 @@ public class MovieController {
         return "moviedetail";
 
     }
+
+
 
 }
