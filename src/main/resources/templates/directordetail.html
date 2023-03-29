@@ -21,9 +21,16 @@
 <body>
 <div th:replace="~{fragments/navbar :: header}">Hier komt de header</div>
 <div  th:unless="${directors}">
-  <p>geen geldige venue gekozen</p>
+  <div class="d-flex justify-content-center flex-column align-items-center">
+    <h4>This director does not exist. Be sure that you write the correct director id.To see more visit our
+
+      <a href="/directorlist">Director List Page</a>
+
+    </h4>
+    <img th:src="@{/css/img/error.png}" alt="error" width="800px" height="600px"/>
+  </div>
 </div>
-<div  th:if="${directors}"> </div>
+<div  th:if="${directors}">
 <div th:if="${prev!=null}" class="prevButtonDiv">
   <a class="buttonLook smallButton" th:href="@{'/directordetail/' + ${prev}}">&lt;</a>
 </div>
@@ -85,6 +92,8 @@
 
 
 
+</div>
+</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

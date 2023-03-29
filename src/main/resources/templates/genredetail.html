@@ -21,9 +21,16 @@
 <body>
 <div th:replace="~{fragments/navbar :: header}">Hier komt de header</div>
 <div  th:unless="${genres}">
-    <p>geen geldige venue gekozen</p>
+    <div class="d-flex justify-content-center flex-column align-items-center">
+        <h4>This genre does not exist. Be sure that you write the correct genre id.To see more visit our
+
+            <a href="/home">Home Page</a>
+
+        </h4>
+        <img th:src="@{/css/img/error.png}" alt="error" width="800px" height="600px"/>
+    </div>
 </div>
-<div  th:if="${genres}"> </div>
+<div  th:if="${genres}">
 <div th:if="${prev!=null}" class="prevButtonDiv">
     <a class="buttonLook smallButton" th:href="@{'/genredetail/' + ${prev}}">&lt;</a>
 </div>
@@ -63,7 +70,7 @@
 
 </div>
 
-
+</div>
 
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

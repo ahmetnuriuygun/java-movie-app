@@ -2,6 +2,7 @@ package be.thomasmore.movie.controllers;
 
 import be.thomasmore.movie.model.Movies;
 import be.thomasmore.movie.repositories.MovieRepository;
+import be.thomasmore.movie.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,9 @@ public class MovieController {
     @Autowired
     private MovieRepository movieRepository;
 
+    @Autowired
+    private PostRepository postRepository;
+
 
 
 
@@ -27,7 +31,8 @@ public class MovieController {
                             @RequestParam(required = false)String keyword,
                             @RequestParam(required = false) Integer minReleaseDate,
                             @RequestParam(required = false) Integer maxReleaseDate,
-                            @RequestParam(required = false) Double imdb)
+                            @RequestParam(required = false) Double imdb
+    )
     {
         List<Movies> movies;
 
@@ -47,19 +52,21 @@ public class MovieController {
 
     }
 
-    @GetMapping({"/moviedetail","/moviedetail/{id}"})
+    @GetMapping({"/moviedetail/{id}","/moviedetail"})
     public String movieDetails(Model model, @PathVariable(required = false)Integer id){
-        if(id==null) return "moviedetails";
+       if(id==null){
+           return "moviedetail";
+       }
 
         Optional<Movies> optionalMovies = movieRepository.findById(id);
         Optional<Movies> optionalPrev = movieRepository.findFirstByIdLessThanOrderByIdDesc(id);
         Optional<Movies> optionalNext = movieRepository.findFirstByIdGreaterThanOrderById(id);
         if (optionalMovies.isPresent()) {
             Movies movie = optionalMovies.get();
-
             model.addAttribute("movie", movie);
-
+            model.addAttribute("post",postRepository.findByMovies(movie));
         }
+
         if (optionalPrev.isPresent()) {
             model.addAttribute("prev", optionalPrev.get().getId());
         } else {
@@ -73,6 +80,7 @@ public class MovieController {
         return "moviedetail";
 
     }
+
 
 
 

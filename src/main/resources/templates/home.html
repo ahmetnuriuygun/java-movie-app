@@ -93,32 +93,33 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <a  th:href="@{'/moviedetail/' + ${movie2.id}}">
+                <a  th:href="@{'/moviedetail/' + ${movie1.id}}">
                     <img
-                            th:src="${movie2.getPoster()}"
+                            th:src="${movie1.getPoster()}"
                             class="d-block w-100"
-                            alt="Kitten 1"
+                            alt="Kitten 1" style="object-fit: cover;
+  object-position: 50% 15%;"
                     />
                 </a>
 
                 <div class="carousel-caption d-none d-md-block">
-                    <h2 th:text="${movie2.getMovieName()}" class="bg-white"></h2>
-                    <h5 class="bg-white">An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.</h5>
+                    <h2 th:text="${movie1.getMovieName()}" class="bg-white"></h2>
+<!--                    <h5 class="bg-white" th:text="${movie1.getDescription()}"></h5>-->
 
                 </div>
             </div>
             <div class="carousel-item">
-                <a  th:href="@{'/moviedetail/' + ${movie1.id}}">
+                <a  th:href="@{'/moviedetail/' + ${movie2.id}}">
                     <img
-                            th:src="${movie1.getPoster()}"
+                            th:src="${movie2.getPoster()}"
                             class="d-block w-100"
                             alt="Kitten 2"
                     />
                 </a>
 
                 <div class="carousel-caption d-none d-md-block">
-                    <h2 th:text="${movie1.getMovieName()}" class="bg-white"></h2>
-                    <h5 class="bg-white">The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son.</h5>
+                    <h2 th:text="${movie2.getMovieName()}" class="bg-white"></h2>
+<!--                    <h5 class="bg-white" th:text="${movie2.getDescription()}"></h5>-->
 
                 </div>
             </div>
@@ -132,7 +133,7 @@
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h2 th:text="${movie3.getMovieName()}" class="bg-white"></h2>
-                    <h5 class="bg-white">After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from corruption.
+<!--                    <h5 class="bg-white" th:text="${movie3.getDescription()}">-->
 
                     </h5>
                 </div>

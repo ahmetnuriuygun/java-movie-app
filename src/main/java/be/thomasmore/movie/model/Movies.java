@@ -33,6 +33,8 @@ public class Movies {
     @ManyToOne
     private Directors directors;
 
+
+
     @ManyToMany
     @JoinTable(name="roles",
     joinColumns = @JoinColumn(name = "movie_id"),

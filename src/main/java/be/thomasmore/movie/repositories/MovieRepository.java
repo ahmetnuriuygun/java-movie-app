@@ -30,4 +30,5 @@ Optional<Movies> findFirstByOrderByIdAsc();
            "AND (?4 IS NULL OR m.rank >= ?4)"
    )
    List<Movies> findByMovies(String keyword, Integer min, Integer max, Double imdb);
+
 }
